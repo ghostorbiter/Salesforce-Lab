@@ -1,0 +1,34 @@
+{
+  "orgName": "TetstMJ",
+  "country": "PL",
+  "edition": "Enterprice",
+  "language": "pl",
+  "hasSampleData": false,
+  "features": [
+    "B2BCommerce",
+    "Communities",
+    "ContactsToMultipleAccounts",
+    "MultiCurrency",
+    "SalesCloudEinstein"
+  ],
+  "settings": {
+    "territory2Settings": {
+      "enableTerritoryManagement2": true
+    },
+    "languageSettings": {
+      "enableTranslationWorkbench": true,
+      "enableEndUserLanguages": true,
+      "enableLocalNamesForStdObjects": true,
+      "enablePlatformLanguages": true
+    },
+    "forecastingSettings": {
+      "enableForecasts": true
+    },
+    "quoteSettings": {
+      "enableQuote": true
+    },
+    "ideasSettings": {
+      "enableIdeas": true
+    }
+  }
+}
