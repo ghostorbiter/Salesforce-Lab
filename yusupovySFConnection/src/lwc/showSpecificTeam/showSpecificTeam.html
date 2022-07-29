@@ -1,0 +1,15 @@
+<!--
+ - Created by yyusupov on 21.07.2022.
+ -->
+
+<!-- Show Specific Team -->
+<template>
+    <template if:true={teamId}>
+        <lightning-datatable key-field="Id"
+                             hide-checkbox-column="true"
+                             columns={columns}
+                             data={teamData}>
+
+        </lightning-datatable>
+    </template>
+</template>

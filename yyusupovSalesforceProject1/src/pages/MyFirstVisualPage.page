@@ -1,0 +1,8 @@
+<!--
+ - Created by yyusupov on 08.07.2022.
+ -->
+
+<apex:page id="MyFirstVisualPage" standardController="Contact"  renderAs="pdf">
+    <h1>Contact Details</h1>
+    <apex:detail subject="{!Contact.Id}" relatedList="false"/>
+</apex:page>

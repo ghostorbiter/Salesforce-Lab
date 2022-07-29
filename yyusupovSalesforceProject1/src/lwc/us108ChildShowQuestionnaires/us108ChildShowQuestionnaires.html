@@ -1,0 +1,17 @@
+<!--
+ - Created by yyusupov on 13.07.2022.
+ -->
+
+<!-- Us 108 Child Show Questionnaires -->
+<template>
+    <template  if:true={userId}>
+            <lightning-datatable key-field="Id"
+                                 data={questionnaires.data}
+                                 columns={columns}
+                                 hide-checkbox-column="true">
+
+            </lightning-datatable>
+        <lightning-button label="Close" variant="destructive" onclick={handleClose}
+                          class="slds-m-left_xx-small"></lightning-button>
+    </template>
+</template>

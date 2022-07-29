@@ -1,0 +1,30 @@
+<!--
+ - Created by yyusupov on 22.07.2022.
+ -->
+
+<!-- Account Book Search -->
+<template>
+    <lightning-card title="Book Search">
+        <lightning-layout multiple-rows="true" vertical-align="end">
+            <lightning-layout-item size="9" padding="around-small">
+                <lightning-input type="text" label="Enter Product Name" value={searchValue} onchange={searchKeyword}>
+                </lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item size="2" padding="around-small">
+                <lightning-button label="Search" onclick={handleSearchKeyword} variant="brand">
+                </lightning-button>
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-card>
+    <lightning-card if:true={clickSearch} title="Books:">
+        <lightning-datatable key-field="Id"
+                             data={orders}
+                             columns={orderColumns}
+                             hide-checkbox-column="true"
+                             sorted-by="startDate"
+                             sorted-direction={sortDirection}
+                             onsort={handleSort}>
+
+        </lightning-datatable>
+    </lightning-card>
+</template>

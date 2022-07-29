@@ -1,0 +1,45 @@
+<!--
+ - Created by yyusupov on 08.07.2022.
+ -->
+
+<aura:component description="US106WebinarApproveRejectComponent" implements="flexipage:availableForAllPageTypes"
+                controller="US106WebinarApproveRejectCtrlr" access="global">
+
+    <aura:attribute name="isModalOpen" type="boolean" default="false"/>
+    <aura:attribute name="webinarId" type="Integer" default="0"/>
+    <aura:attribute access="public" type="Integer" name="webinarLimit" default="10"/>
+    <aura:attribute access="public" type="Webinar__c[]" name="webinars"/>
+    <aura:attribute access="public" type="Object[]" name="columns"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler event="c:CreateNewWebinarRefreshList" action="{!c.doInit}"/>
+
+    <lightning:datatable keyField="Id" columns="{!v.columns}" data="{!v.webinars}" showRowNumberColumn="true"
+                         onrowaction="{!c.onRowActions}" hideCheckboxColumn="true"/>
+
+    <aura:if isTrue="{!v.isModalOpen}">
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                 aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">
+                        Please provide Reject Reason</h2>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <lightning:textarea aura:id="rejectReasonText" required="true"/>
+                </div>
+                <footer class="slds-modal__footer">
+                    <lightning:button variant="neutral"
+                                      label="Cancel"
+                                      title="Cancel"
+                                      onclick="{!c.closeModel}"/>
+                    <lightning:button variant="brand"
+                                      label="Submit"
+                                      title="Submit"
+                                      onclick="{!c.submitDetails}"/>
+                </footer>
+            </div>
+        </section>
+    </aura:if>
+
+</aura:component>

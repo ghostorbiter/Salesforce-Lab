@@ -1,0 +1,25 @@
+<!--
+ - Created by yyusupov on 12.07.2022.
+ -->
+
+<!-- Account Edit Lwc -->
+<template>
+    <lightning-card title="Account Editor">
+        <lightning-record-edit-form object-api-name="Account" record-id={recordId}>
+            <lightning-messages></lightning-messages>
+            <div class="slds-grid">
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning-input-field field-name="Name"></lightning-input-field>
+                    <lightning-input-field field-name="Phone"></lightning-input-field>
+                </div>
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning-input-field field-name="Type"></lightning-input-field>
+                    <lightning-input-field field-name="Rating"></lightning-input-field>
+                </div>
+            </div>
+        <div class="slds-m-top_medium">
+            <lightning-button type="submit" variant="brand" label="Edit/Create" class="slds-align_absolute-center"></lightning-button>
+        </div>
+        </lightning-record-edit-form>
+    </lightning-card>
+</template>

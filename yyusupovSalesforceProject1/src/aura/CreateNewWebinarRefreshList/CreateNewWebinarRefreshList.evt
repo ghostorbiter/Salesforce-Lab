@@ -1,0 +1,6 @@
+<!--
+ - Created by yyusupov on 11.07.2022.
+ -->
+
+<aura:event type="APPLICATION" description="CreateNewWebinarRefreshList">
+</aura:event>

@@ -1,0 +1,30 @@
+<!--
+ - Created by yyusupov on 08.07.2022.
+ -->
+
+<aura:component description="US105WebinarComponent2" implements="flexipage:availableForAllPageTypes" access="global">
+    <aura:registerEvent name="webinarCreated" type="c:CreateNewWebinarRefreshList"/>
+    <div class="slds-box slds-theme_default">
+        <div class="slds-page-header" role="banner">
+            <h1 class="slds-page-header__title slds-m-right_small
+            slds-truncate slds-align-left">Create New Webinar</h1>
+        </div>
+
+        <lightning:recordEditForm aura:id="myWebinarForm2"
+                                  objectApiName="Webinar__c"
+                                  onsubmit="{!c.handleSubmit}"
+                                  onsuccess="{!c.handleSuccess}">
+            <lightning:messages/>
+            <lightning:inputField aura:id="field" fieldName="Name"/>
+            <lightning:inputField aura:id="field" fieldName="Total_Number_of_Seats__c"/>
+            <lightning:inputField aura:id="field" fieldName="Approval_Status__c"/>
+            <lightning:inputField aura:id="field" fieldName="End_Date__c"/>
+            <lightning:inputField aura:id="field" fieldName="Cost__c"/>
+            <lightning:inputField aura:id="field" fieldName="Description__c"/>
+            <div class="slds-m-top_medium">
+                <lightning:button label="Cancel" onclick="{!c.handleCancel}" />
+                <lightning:button type="submit" label="Save Webinar" variant="brand"/>
+            </div>
+        </lightning:recordEditForm>
+    </div>
+</aura:component>

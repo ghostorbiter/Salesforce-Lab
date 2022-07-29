@@ -1,0 +1,36 @@
+<!--
+ - Created by yyusupov on 11.07.2022.
+ -->
+
+<aura:component description="US107WebinarSearchComponent" implements="flexipage:availableForAllPageTypes"
+                controller="US107WebinarSearchComponentCtrlr" access="global">
+
+    <div class="slds-box slds-theme_default slds-m-vertical_small">
+        <div class="slds-grid slds-gutters">
+
+            <div class="slds-col slds-size_1-of-4">
+                <span>
+                    <lightning:select aura:id="filterType">
+                    <option value="status">Status</option>
+                    <option value="type">Type</option>
+                    </lightning:select>
+                </span>
+            </div>
+            <div class="slds-col slds-size_3-of-4">
+                <lightning:textarea aura:id="filterText"/>
+            </div>
+        </div>
+        <lightning:button label="Search" name="searchBtn" onclick="{!c.search}"/>
+    </div>
+
+    <aura:attribute access="public" type="Integer" name="webinarLimit" default="10"/>
+    <aura:attribute access="public" type="Webinar__c[]" name="webinars"/>
+    <aura:attribute access="public" type="Object[]" name="columns"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler event="c:CreateNewWebinarRefreshList" action="{!c.doInit}"/>
+
+    <lightning:datatable keyField="Id" columns="{!v.columns}" data="{!v.webinars}" showRowNumberColumn="true"
+                         onrowaction="{!c.onRowActions}" hideCheckboxColumn="true"/>
+
+</aura:component>

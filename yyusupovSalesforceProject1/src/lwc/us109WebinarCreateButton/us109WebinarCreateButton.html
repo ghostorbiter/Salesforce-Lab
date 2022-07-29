@@ -1,0 +1,24 @@
+<!--
+ - Created by yyusupov on 13.07.2022.
+ -->
+
+<!-- Us 109 Webinar Create Button -->
+<template>
+    <lightning-quick-action-panel header="Clone this Webinar">
+        <lightning-record-edit-form record-id={recordId} object-api-name="Webinar__c">
+            <lightning-layout multiple-rows="true" class="slds-p-around_small">
+                <lightning-layout-item size="12" flexibility="true" >
+                    <lightning-messages></lightning-messages>
+                    <lightning-input-field field-name="Name"></lightning-input-field>
+                    <lightning-input-field field-name="Type__c"></lightning-input-field>
+                    <lightning-input-field field-name="Cost__c"></lightning-input-field>
+                    <lightning-input-field field-name="Price__c"></lightning-input-field>
+                </lightning-layout-item>
+            </lightning-layout>
+        </lightning-record-edit-form>
+        <div slot="footer">
+            <lightning-button variant="neutral" label="Cancel" onclick={closeAction}></lightning-button>
+            <lightning-button variant="brand" label="Save" onclick={saveAction}></lightning-button>
+        </div>
+    </lightning-quick-action-panel>
+</template>

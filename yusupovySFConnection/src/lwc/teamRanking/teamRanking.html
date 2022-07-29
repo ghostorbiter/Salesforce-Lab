@@ -1,0 +1,26 @@
+<!--
+ - Created by yyusupov on 21.07.2022.
+ -->
+
+<!-- Team Ranking -->
+<template>
+    <lightning-card title="Team Name">
+        <lightning-input type="text" value={searchValue} onchange={searchKeyword}>
+        </lightning-input>
+        <lightning-button label="Search" onclick={handleSearchKeyword} variant="brand">
+        </lightning-button>
+    </lightning-card>
+    <lightning-card title="Team Ranking">
+        <lightning-datatable key-field="Id"
+                             data={teams}
+                             columns={teamColumns}
+                             hide-checkbox-column="true"
+                             show-row-number-column="true"
+                             onrowaction={callRowAction}>
+
+        </lightning-datatable>
+    </lightning-card>
+    <lightning-card if:true={showDetails} title="Employees">
+        <c-show-specific-team team-id={teamId}></c-show-specific-team>
+    </lightning-card>
+</template>

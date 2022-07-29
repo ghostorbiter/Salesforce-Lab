@@ -1,0 +1,32 @@
+<!--
+ - Created by yyusupov on 12.07.2022.
+ -->
+
+<!-- Us 108 Webinar Questionnaire -->
+<template>
+    <lightning-card title={title} if:true={isCompleted}>
+        <lightning-spinner variant="brand" if:true={isLoading}></lightning-spinner>
+        <lightning-record-edit-form object-api-name="Questionnaire__c">
+            <lightning-layout multiple-rows="true" class="slds-p-around_small">
+                <lightning-layout-item size="12" flexibility="true" >
+                    <lightning-messages></lightning-messages>
+                    <lightning-input-field field-name="Attendance__c" onchange={handleChange}></lightning-input-field>
+                    <lightning-input-field field-name="Age__c" onchange={handleChange}></lightning-input-field>
+                    <lightning-input-field field-name="Score__c" onchange={handleChange}></lightning-input-field>
+                    <lightning-input-field field-name="Would_you_recommend__c" onchange={handleRecommendChange}></lightning-input-field>
+                    <template if:true={wouldRecommendNo}>
+                        <lightning-input-field field-name="Tell_us_why__c" onchange={handleChange}></lightning-input-field>
+                    </template>
+                    <lightning-input-field field-name="Feedback__c"></lightning-input-field>
+                    <lightning-button label="Save" variant="brand" type="button" onclick={handleSaveRecord}></lightning-button>
+<!--                    <lightning-button label="Save" variant="brand" type="submit"></lightning-button>-->
+                    <lightning-button label="Show my questionnaires" variant="brand-outline"
+                                      class="slds-m-left_xx-small" onclick={handleShowClick}></lightning-button>
+                </lightning-layout-item>
+            </lightning-layout>
+        </lightning-record-edit-form>
+    </lightning-card>
+    <lightning-card if:true={showUserQuestionnaires} title="Related Questionnaires">
+            <c-us108-child-show-questionnaires user-id={userId} onclosebuttonclicked={handleClose}></c-us108-child-show-questionnaires>
+    </lightning-card>
+</template>
